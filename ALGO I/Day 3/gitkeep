@@ -1,0 +1,19 @@
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int n = nums.size();
+        int temp = 0;
+        int j = 0;
+        
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] != 0) {
+                temp = nums.at(i);
+                nums.at(i) = nums.at(j);
+                nums.at(j) = temp;
+                j++;
+            }
+        }       
+        
+    }
+};
+Comments: 0
