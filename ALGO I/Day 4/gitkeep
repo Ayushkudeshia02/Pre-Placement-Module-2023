@@ -1,0 +1,10 @@
+public:
+    void reverseString(vector& s) {
+        int start=0;
+        int end=s.size()-1;
+        while(end>start){
+            swap(s[start++], s[end--]);
+        }
+        
+    }
+};
