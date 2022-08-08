@@ -1,0 +1,18 @@
+class Solution {
+public:
+	void filling(int r, int c, int n, int m, int old, int color, vector<vector<int>>& image)
+	{
+		if(r<0 || c<0 || r>=n || c>=m || image[r][c] != old)    return;
+		image[r][c] = color;
+		filling(r-1,c,n,m,old,color,image);
+		filling(r,c-1,n,m,old,color,image);
+		filling(r,c+1,n,m,old,color,image);
+		filling(r+1,c,n,m,old,color,image);
+	}
+	vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+		int n = image.size(), m = image[0].size();
+		if(image[sr][sc]==color)    return image;
+		filling(sr,sc,n,m,image[sr][sc],color,image);
+		return image;
+	}
+};
